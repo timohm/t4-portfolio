@@ -44,9 +44,7 @@ body {
   background: var(--bg);
 }
 
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: var(--display);
   font-weight: 400;
   line-height: 1.05;
@@ -72,9 +70,7 @@ a {
   color: inherit;
 }
 
-header,
-main > section,
-footer {
+header, main > section, footer {
   max-width: var(--wrapper);
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 5vw, 2.5rem);
@@ -131,10 +127,7 @@ footer {
   height: 4rem;
   padding-inline: calc(max(0vw, (100vw - var(--wrapper)) / 2) + clamp(1.25rem, 5vw, 2.5rem));
   border-bottom: 1px solid transparent;
-  transition:
-    height 0.3s var(--ease),
-    background-color 0.3s var(--ease),
-    border-color 0.3s var(--ease);
+  transition: height 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
 .hero nav.scrolled {
@@ -153,7 +146,6 @@ footer {
 #navList {
   position: fixed;
   inset: 0;
-  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -194,8 +186,7 @@ footer {
   transition-delay: 0.15s;
 }
 
-#navButton,
-#themeButton {
+#navButton, #themeButton {
   position: relative;
   z-index: 2;
 }
@@ -205,28 +196,16 @@ footer {
   height: 2.5rem;
 }
 
-#navButton::before,
-#navButton::after {
+#navButton::before {
   content: "";
   position: absolute;
-  left: 0.5rem;
-  right: 0.5rem;
-  height: 1px;
-  background: var(--text);
-}
-
-#navButton::before {
-  top: calc(50% - 4px);
-}
-
-#navButton::after {
-  top: calc(50% + 3px);
+  inset: calc(50% - 4px) 0.5rem auto;
+  border-top: 1px solid var(--text);
+  box-shadow: 0 7px 0 var(--text);
 }
 
 @media (min-width: 900px) {
-  #navButton {
-    display: none;
-  }
+  #navButton { display: none; }
 
   #navList {
     position: static;
@@ -240,6 +219,11 @@ footer {
     transition: none;
   }
 
+  #navList li {
+    opacity: 1;
+    transform: none;
+  }
+
   .hero nav a {
     position: relative;
     font-size: 0.75rem;
@@ -251,8 +235,7 @@ footer {
   .hero nav a::after {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 0;
+    inset: auto auto 0 0;
     width: 100%;
     height: 1px;
     background: var(--accent);
@@ -272,8 +255,7 @@ footer {
   gap: 1.5rem;
 }
 
-#projekt > h2,
-#projekt > p {
+#projekt > h2, #projekt > p {
   flex-basis: 100%;
 }
 
@@ -345,4 +327,23 @@ footer {
 
 .links a:last-child {
   margin-left: auto;
+}
+
+.to-top {
+  position: fixed;
+  inset: auto 1rem 1rem auto;
+  z-index: 5;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--accent);
+  background: var(--bg);
+  font-size: 0.75rem;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+}
+
+.to-top.show {
+  opacity: 1;
+  visibility: visible;
 }

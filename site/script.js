@@ -45,3 +45,11 @@ if (count) {
     });
   }
 }
+
+const toTop = document.querySelector(".to-top");
+const bar = document.querySelector("header nav");
+
+new IntersectionObserver(([entry]) => {
+  bar.classList.toggle("scrolled", !entry.isIntersecting);
+  toTop.classList.toggle("show", !entry.isIntersecting);
+}).observe(document.getElementById("top"));
