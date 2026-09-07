@@ -171,7 +171,7 @@ footer {
   border-top: 1px solid var(--line);
 }
 
-.masthead nav {
+header nav {
   position: fixed;
   inset: 0 0 auto;
   z-index: 10;
@@ -185,13 +185,13 @@ footer {
   transition: height 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
-.masthead nav.scrolled {
+header nav.scrolled {
   height: 3rem;
   background: var(--bg);
   border-bottom-color: var(--line);
 }
 
-.masthead nav button {
+header nav button {
   background: none;
   border: 0;
   padding: 0;
@@ -291,7 +291,7 @@ footer {
     transform: none;
   }
 
-  .masthead nav a {
+  header nav a {
     position: relative;
     font: var(--small);
     text-transform: uppercase;
@@ -299,7 +299,7 @@ footer {
     padding-block: 0.5rem;
   }
 
-  .masthead nav a::after {
+  header nav a::after {
     content: "";
     position: absolute;
     inset: auto 0 0;
@@ -310,8 +310,8 @@ footer {
     transition: transform 0.3s var(--ease);
   }
 
-  .masthead nav a:hover::after,
-  .masthead nav a[aria-current="true"]::after {
+  header nav a:hover::after,
+  header nav a[aria-current="true"]::after {
     transform: scaleX(1);
   }
 
@@ -450,8 +450,12 @@ footer {
   color: var(--muted);
 }
 
-.links a:last-child {
+.links a + a:last-child {
   margin-left: auto;
+}
+
+dd + dt {
+  margin-top: 1rem;
 }
 
 .to-top {
