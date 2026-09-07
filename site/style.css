@@ -251,7 +251,7 @@ header, main > section, footer {
   flex-basis: 100%;
 }
 
-#projekt .filter {
+.copy, #projekt .filter {
   flex-shrink: 0;
   padding: 0.25rem 0.875rem;
   border: 1px solid var(--line);
@@ -312,7 +312,7 @@ header, main > section, footer {
   font-size: 0.875rem;
 }
 
-.links .private {
+.links .private, #kontakt [role="status"] {
   margin-left: auto;
   color: var(--muted);
 }

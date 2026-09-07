@@ -75,3 +75,15 @@ const reveal = new IntersectionObserver((entries) => {
   }
 }, { rootMargin: "0px 0px -10% 0px" });
 document.querySelectorAll(".reveal").forEach((el) => reveal.observe(el));
+
+const copy = document.querySelector(".copy");
+if (copy) {
+  const note = copy.nextElementSibling;
+  copy.addEventListener("click", () => {
+    navigator.clipboard.writeText("portfolio@tihm.net");
+    note.textContent = "Kopierat!";
+    setTimeout(() => (note.textContent = ""), 2500);
+  });
+}
+
+document.getElementById("year").textContent = new Date().getFullYear();
