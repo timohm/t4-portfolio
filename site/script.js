@@ -1,3 +1,14 @@
+const themeButton = document.getElementById("themeButton");
+
+function setTheme(dark) {
+  document.documentElement.classList.toggle("dark", dark);
+  localStorage.theme = dark ? "dark" : "light";
+}
+
+themeButton.addEventListener("click", () =>
+  setTheme(!document.documentElement.classList.contains("dark"))
+);
+
 const navButton = document.getElementById("navButton");
 const navList = document.getElementById("navList");
 let open = false;

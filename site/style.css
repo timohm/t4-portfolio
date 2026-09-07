@@ -11,7 +11,7 @@
   --wrapper: 70rem;
 }
 
-body.dark {
+html.dark {
   --bg: #141210;
   --surface: #1d1a16;
   --text: #ece8e0;
