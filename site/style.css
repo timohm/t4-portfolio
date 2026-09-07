@@ -148,7 +148,7 @@ header, main > section, footer {
   font-size: clamp(1.75rem, 8vw, 2.5rem);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
+  transition: opacity 0.3s var(--ease), visibility 0s 0.3s;
 }
 
 #navList a {
@@ -161,31 +161,30 @@ header, main > section, footer {
   transition: opacity 0.3s var(--ease), transform 0.3s var(--ease);
 }
 
+#navList.open {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
 #navList.open li {
   opacity: 1;
   transform: none;
 }
 
-#navList.open li:nth-child(2) {
-  transition-delay: 0.05s;
-}
-
-#navList.open li:nth-child(3) {
-  transition-delay: 0.1s;
-}
-
-#navList.open li:nth-child(4) {
-  transition-delay: 0.15s;
-}
+#navList.open li:nth-child(2) { transition-delay: 0.05s; }
+#navList.open li:nth-child(3) { transition-delay: 0.1s; }
+#navList.open li:nth-child(4) { transition-delay: 0.15s; }
 
 #navButton, #themeButton {
   position: relative;
   z-index: 2;
 }
 
-#navButton {
+#navButton, #themeButton {
   width: 2.5rem;
   height: 2.5rem;
+  font-size: 1.25rem;
 }
 
 #navButton::before {
@@ -195,6 +194,8 @@ header, main > section, footer {
   border-top: 1px solid var(--text);
   box-shadow: 0 7px 0 var(--text);
 }
+
+#themeButton::before { content: "\25D0"; }
 
 @media (min-width: 900px) {
   #navButton { display: none; }
