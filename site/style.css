@@ -330,18 +330,16 @@ header, main > section, footer {
   background: var(--bg);
   font-size: 0.75rem;
   text-decoration: none;
-  opacity: 0;
-  visibility: hidden;
   transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
 }
 
-.to-top.show {
-  opacity: 1;
-  visibility: visible;
+html.js .to-top:not(.show) {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .reveal { opacity: 0; }
+  html.js .reveal { opacity: 0; }
   .reveal.in { animation: rise 0.5s var(--ease) both; }
   @keyframes rise {
     from { opacity: 0; transform: translateY(0.75rem); }
