@@ -49,7 +49,11 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-size: clamp(3rem, 14vw, 10rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.masthead h1 {
+  font-size: clamp(4rem, min(20vw, 28vh), 16rem);
 }
 
 h2 {
@@ -74,7 +78,7 @@ a {
   color: inherit;
 }
 
-.copy, .filter, .tags, .to-top, #count, dt, time, footer, h2::before {
+.strip, .copy, .filter, .tags, .to-top, #count, dt, time, footer, h2::before {
   font: var(--small);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -143,6 +147,16 @@ footer {
 .lead {
   font-size: 1.125rem;
   color: var(--muted);
+}
+
+.strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  max-width: none;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line);
 }
 
 .masthead nav {
@@ -278,10 +292,30 @@ footer {
     transform: scaleX(1);
   }
 
-  main > section {
+  .masthead, main > section {
     grid-template-columns: var(--col) 1fr;
     column-gap: var(--gap);
     align-items: start;
+  }
+
+  .masthead {
+    display: grid;
+    align-content: end;
+  }
+
+  .strip {
+    grid-column: 1 / -1;
+  }
+
+  .masthead h1 {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .lead {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: end;
   }
 
   main > section > * {
