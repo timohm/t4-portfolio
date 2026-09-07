@@ -20,9 +20,7 @@ html.dark {
   --accent: #d9a05b;
 }
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
   margin: 0;
 }
@@ -30,11 +28,6 @@ html.dark {
 ul {
   padding: 0;
   list-style: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
 }
 
 body {
@@ -90,8 +83,7 @@ header, main > section, footer {
 
 .skip {
   position: fixed;
-  top: -3.5rem;
-  left: 0.5rem;
+  inset: -3.5rem auto auto 0.5rem;
   z-index: 20;
   background: var(--bg);
   padding: 0.5rem 1rem;
@@ -235,8 +227,7 @@ header, main > section, footer {
   .hero nav a::after {
     content: "";
     position: absolute;
-    inset: auto auto 0 0;
-    width: 100%;
+    inset: auto 0 0;
     height: 1px;
     background: var(--accent);
     transform: scaleX(0);
@@ -347,4 +338,13 @@ header, main > section, footer {
 .to-top.show {
   opacity: 1;
   visibility: visible;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .reveal { opacity: 0; }
+  .reveal.in { animation: rise 0.5s var(--ease) both; }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(0.75rem); }
+    to { opacity: 1; transform: none; }
+  }
 }
