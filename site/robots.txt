@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://timohm.github.io/t4-portfolio/sitemap.xml
