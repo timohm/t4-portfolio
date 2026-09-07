@@ -272,3 +272,79 @@ footer {
     transform: scaleX(1);
   }
 }
+
+#projekt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+#projekt > h2,
+#projekt > p {
+  flex-basis: 100%;
+}
+
+.card {
+  flex: 1 1 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cover {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 10;
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+
+.cover::before {
+  font-family: var(--display);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  color: var(--accent);
+}
+
+.card:nth-of-type(1) .cover::before {
+  content: "P";
+}
+
+.card:nth-of-type(2) .cover::before {
+  content: "Q";
+}
+
+.card:nth-of-type(3) .cover::before {
+  content: "T";
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tags li {
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  font-size: 0.875rem;
+}
+
+.links .private {
+  margin-left: auto;
+  color: var(--muted);
+}
+
+.links a:last-child {
+  margin-left: auto;
+}
