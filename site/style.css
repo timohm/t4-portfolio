@@ -5,6 +5,7 @@
   --muted: #6b675f;
   --line: #d9d3c6;
   --accent: #a04f0b;
+  --grain: 0.04;
   --display: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -23,6 +24,7 @@ html.dark {
   --muted: #a09a8e;
   --line: #353028;
   --accent: #d9a05b;
+  --grain: 0.07;
 }
 
 * {
@@ -40,6 +42,16 @@ body {
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  opacity: var(--grain);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 h1, h2, h3 {
@@ -249,6 +261,17 @@ footer {
 #themeButton::before { content: "\25D0"; }
 
 @media (min-width: 900px) {
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    max-width: var(--wrapper);
+    margin-inline: auto;
+    border-inline: 1px solid var(--line);
+    background: linear-gradient(var(--line), var(--line)) calc(clamp(1.25rem, 5vw, 2.5rem) + var(--col) + var(--gap) / 2) 0 / 1px 100% no-repeat;
+  }
+
   #navButton { display: none; }
 
   #navList {
