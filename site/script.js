@@ -30,3 +30,18 @@ navList.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && open) setNav(false);
 });
+
+const count = document.getElementById("count");
+if (count) {
+  const cards = [...document.querySelectorAll(".card")];
+  const filters = [...document.querySelectorAll(".filter")];
+  for (const button of filters) {
+    button.addEventListener("click", () => {
+      filters.forEach((b) => b.setAttribute("aria-pressed", b === button));
+      cards.forEach((card) =>
+        card.toggleAttribute("hidden", button.textContent !== "Alla" && !card.dataset.tech.includes(button.textContent))
+      );
+      count.textContent = `${cards.filter((card) => !card.hidden).length} av ${cards.length} projekt`;
+    });
+  }
+}

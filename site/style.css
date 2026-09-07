@@ -24,9 +24,6 @@ html.dark {
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-* {
   margin: 0;
 }
 
@@ -42,7 +39,6 @@ img {
 
 body {
   font-family: var(--body);
-  font-size: 1rem;
   line-height: 1.6;
   color: var(--text);
   background: var(--bg);
@@ -102,7 +98,6 @@ footer {
   left: 0.5rem;
   z-index: 20;
   background: var(--bg);
-  color: var(--text);
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
@@ -153,7 +148,6 @@ footer {
   border: 0;
   padding: 0;
   cursor: pointer;
-  color: var(--text);
 }
 
 #navList {
@@ -252,7 +246,6 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding-block: 0.5rem;
-    text-decoration: none;
   }
 
   .hero nav a::after {
@@ -284,11 +277,31 @@ footer {
   flex-basis: 100%;
 }
 
+#projekt .filter {
+  flex-shrink: 0;
+  padding: 0.25rem 0.875rem;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--muted);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+#projekt .filter[aria-pressed="true"] {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
 .card {
   flex: 1 1 20rem;
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.card[hidden] {
+  display: none;
 }
 
 .cover {
@@ -297,24 +310,9 @@ footer {
   aspect-ratio: 16 / 10;
   background: var(--surface);
   border: 1px solid var(--line);
-}
-
-.cover::before {
   font-family: var(--display);
   font-size: clamp(3rem, 6vw, 4.5rem);
   color: var(--accent);
-}
-
-.card:nth-of-type(1) .cover::before {
-  content: "P";
-}
-
-.card:nth-of-type(2) .cover::before {
-  content: "Q";
-}
-
-.card:nth-of-type(3) .cover::before {
-  content: "T";
 }
 
 .tags {
