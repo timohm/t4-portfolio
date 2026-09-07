@@ -9,6 +9,9 @@
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --wrapper: 70rem;
+  --col: clamp(9rem, 16vw, 14rem);
+  --gap: clamp(1.25rem, 3vw, 2.5rem);
+  --space: clamp(5rem, 12vh, 9rem);
 }
 
 html.dark {
@@ -69,6 +72,24 @@ header, main > section, footer {
   padding-inline: clamp(1.25rem, 5vw, 2.5rem);
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space);
+  padding-block: var(--space);
+}
+
+main > section {
+  display: grid;
+  row-gap: 1.25rem;
+}
+
+footer {
+  padding-block: 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
@@ -94,7 +115,7 @@ header, main > section, footer {
   top: 0.5rem;
 }
 
-.hero {
+.masthead {
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -108,7 +129,7 @@ header, main > section, footer {
   color: var(--muted);
 }
 
-.hero nav {
+.masthead nav {
   position: fixed;
   inset: 0 0 auto;
   z-index: 10;
@@ -122,13 +143,13 @@ header, main > section, footer {
   transition: height 0.3s var(--ease), background-color 0.3s var(--ease), border-color 0.3s var(--ease);
 }
 
-.hero nav.scrolled {
+.masthead nav.scrolled {
   height: 3rem;
   background: var(--bg);
   border-bottom-color: var(--line);
 }
 
-.hero nav button {
+.masthead nav button {
   background: none;
   border: 0;
   padding: 0;
@@ -217,7 +238,7 @@ header, main > section, footer {
     transform: none;
   }
 
-  .hero nav a {
+  .masthead nav a {
     position: relative;
     font-size: 0.75rem;
     text-transform: uppercase;
@@ -225,7 +246,7 @@ header, main > section, footer {
     padding-block: 0.5rem;
   }
 
-  .hero nav a::after {
+  .masthead nav a::after {
     content: "";
     position: absolute;
     inset: auto 0 0;
@@ -236,9 +257,23 @@ header, main > section, footer {
     transition: transform 0.3s var(--ease);
   }
 
-  .hero nav a:hover::after,
-  .hero nav a[aria-current="true"]::after {
+  .masthead nav a:hover::after,
+  .masthead nav a[aria-current="true"]::after {
     transform: scaleX(1);
+  }
+
+  main > section {
+    grid-template-columns: var(--col) 1fr;
+    column-gap: var(--gap);
+    align-items: start;
+  }
+
+  main > section > * {
+    grid-column: 2;
+  }
+
+  main > section > h2 {
+    grid-column: 1;
   }
 }
 
