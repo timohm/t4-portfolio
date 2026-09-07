@@ -7,6 +7,8 @@
   --accent: #a04f0b;
   --display: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --small: 0.75rem var(--mono);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --wrapper: 70rem;
   --col: clamp(9rem, 16vw, 14rem);
@@ -54,6 +56,12 @@ h2 {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
 }
 
+h2::before {
+  content: counter(section, decimal-leading-zero);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 h3 {
   font-size: 1.25rem;
 }
@@ -64,6 +72,13 @@ p {
 
 a {
   color: inherit;
+}
+
+.copy, .filter, .tags, .to-top, #count, dt, time, footer, h2::before {
+  font: var(--small);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
 }
 
 header, main > section, footer {
@@ -77,17 +92,18 @@ main {
   flex-direction: column;
   gap: var(--space);
   padding-block: var(--space);
+  counter-reset: section;
 }
 
 main > section {
   display: grid;
   row-gap: 1.25rem;
+  counter-increment: section;
 }
 
 footer {
   padding-block: 2rem;
   border-top: 1px solid var(--line);
-  color: var(--muted);
 }
 
 :focus-visible {
@@ -240,7 +256,7 @@ footer {
 
   .masthead nav a {
     position: relative;
-    font-size: 0.75rem;
+    font: var(--small);
     text-transform: uppercase;
     letter-spacing: 0.12em;
     padding-block: 0.5rem;
@@ -292,9 +308,6 @@ footer {
   padding: 0.25rem 0.875rem;
   border: 1px solid var(--line);
   background: none;
-  color: var(--muted);
-  font-size: 0.75rem;
-  text-transform: uppercase;
   cursor: pointer;
 }
 
@@ -335,8 +348,6 @@ footer {
   padding: 0.125rem 0.625rem;
   border: 1px solid var(--line);
   border-radius: 999px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
 }
 
 .links {
@@ -364,7 +375,6 @@ footer {
   padding: 0.5rem 0.75rem;
   border: 1px solid var(--accent);
   background: var(--bg);
-  font-size: 0.75rem;
   text-decoration: none;
   transition: opacity 0.3s var(--ease), visibility 0.3s var(--ease);
 }
