@@ -30,7 +30,7 @@ html.dark {
   margin: 0;
 }
 
-ul {
+ul, menu {
   padding: 0;
   list-style: none;
 }
@@ -67,7 +67,7 @@ h2::before {
 }
 
 h3 {
-  font-size: 1.25rem;
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
 }
 
 p {
@@ -78,7 +78,7 @@ a {
   color: inherit;
 }
 
-.strip, .copy, .filter, .tags, .to-top, #count, dt, time, footer, h2::before {
+.strip, .copy, .filter, .tags, .cover, .to-top, #count, dt, time, footer, h2::before {
   font: var(--small);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -325,36 +325,64 @@ footer {
   main > section > h2 {
     grid-column: 1;
   }
+
+  .card {
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+  }
+
+  .card > * {
+    grid-column: 2;
+  }
+
+  .cover {
+    grid-column: 1;
+  }
+
+  #count {
+    grid-area: 2 / 1;
+  }
 }
 
-#projekt {
+.filters {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 0.5rem 1.5rem;
+  align-items: baseline;
 }
 
-#projekt > h2, #projekt > p {
-  flex-basis: 100%;
-}
-
-.copy, #projekt .filter {
-  flex-shrink: 0;
-  padding: 0.25rem 0.875rem;
-  border: 1px solid var(--line);
+.copy, .filter {
+  padding: 0.25rem 0;
+  border: 0;
   background: none;
   cursor: pointer;
+  transition: color 0.2s var(--ease);
 }
 
-#projekt .filter[aria-pressed="true"] {
-  color: var(--accent);
-  border-color: var(--accent);
+.copy {
+  padding-inline: 0.875rem;
+  border: 1px solid var(--line);
+}
+
+.copy:hover, .filter:hover, .filter[aria-pressed="true"] {
+  color: var(--text);
+}
+
+.filter[aria-pressed="true"] {
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-underline-offset: 0.4em;
+}
+
+#count {
+  padding-block: 0.25rem;
 }
 
 .card {
-  flex: 1 1 20rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+  display: grid;
+  row-gap: 0.75rem;
+  padding-block: 1.5rem;
+  border-top: 1px solid var(--line);
 }
 
 .card[hidden] {
@@ -362,14 +390,8 @@ footer {
 }
 
 .cover {
-  display: grid;
-  place-items: center;
-  aspect-ratio: 16 / 10;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  font-family: var(--display);
-  font-size: clamp(3rem, 6vw, 4.5rem);
-  color: var(--accent);
+  grid-row: 1;
+  padding-top: 0.4rem;
 }
 
 .tags {
@@ -378,18 +400,16 @@ footer {
   gap: 0.5rem;
 }
 
-.tags li {
-  padding: 0.125rem 0.625rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+.tags li + li::before {
+  content: "·";
+  margin-right: 0.5rem;
 }
 
 .links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
-  margin-top: auto;
-  border-top: 1px solid var(--line);
+  max-width: none;
   font-size: 0.875rem;
 }
 
