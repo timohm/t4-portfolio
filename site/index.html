@@ -1,12 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>timohm</title>
-</head>
-<body>
-<h1>timohm</h1>
-<p>Portfolio, under construction.</p>
-</body>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Timo Mork</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <span id="top"></span>
+    <a class="skip" href="#main">Hoppa till innehållet</a>
+    <header class="hero">
+      <nav aria-label="Huvudmeny">
+        <ul id="navList">
+          <li><a href="#om">Om mig</a></li>
+          <li><a href="#projekt">Projekt</a></li>
+          <li><a href="#loggbok">Loggbok</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        <button id="navButton" type="button" aria-expanded="false" aria-controls="navList" aria-label="Meny"></button>
+        <button id="themeButton" type="button" aria-label="Byt tema"></button>
+      </nav>
+      <h1>Timo Mork</h1>
+      <p class="lead">Läser TE4 på NTI Gymnasiet Lund. Bygger webb och rotar i AI-integrationer.</p>
+    </header>
+    <main id="main">
+      <section id="om" aria-labelledby="om-h">
+        <h2 id="om-h">Om mig</h2>
+        <!-- <img src="img/timo.jpg" alt="Timo Mork"> -->
+        <p>Jag heter Timo Mork och läser gymnasieingenjörsåret, TE4, på NTI Gymnasiet Lund.</p>
+        <p>Jag sökte hit för att bli bättre på struktur — att bygga mer avancerad mjukvara och hålla ihop den över tid. Det jag är mest nyfiken på är AI-driven utveckling och hur AI-integrationer byggs in i modern mjukvara. Hemma kör jag ett eget AI-system, och det är där det mesta jag lär mig hamnar. Utanför skärmen är det flyg som gäller.</p>
+        <p>HTML och CSS kan jag väl. C# och JavaScript ligger på medelnivå, och det är de två jag vill flytta fram under året.</p>
+      </section>
+      <section id="projekt" aria-labelledby="projekt-h">
+        <h2 id="projekt-h">Projekt</h2>
+        <p>Här ligger tre projekt — en fotoportfölj, en QR-kodsgenerator och den här sidan.</p>
+        <button type="button" class="filter" aria-pressed="true">Alla</button>
+        <button type="button" class="filter" aria-pressed="false">HTML</button>
+        <button type="button" class="filter" aria-pressed="false">CSS</button>
+        <button type="button" class="filter" aria-pressed="false">JavaScript</button>
+        <button type="button" class="filter" aria-pressed="false">TypeScript</button>
+        <p id="count" role="status">3 av 3 projekt</p>
+        <article class="card" data-tech="HTML CSS TypeScript JavaScript">
+          <span class="cover" aria-hidden="true"></span>
+          <h3>portfolioSite</h3>
+          <p>Portföljsida för mina bilder. Det mest avancerade jag har byggt så här långt.</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+          </ul>
+          <p class="links">
+            <a href="projekt/portfoliosite.html">Läs mer</a>
+            <a href="https://dev-www.tihm.net" target="_blank" rel="noopener">Öppna sidan</a>
+            <span class="private">Privat repo</span>
+          </p>
+        </article>
+        <article class="card" data-tech="HTML CSS JavaScript">
+          <span class="cover" aria-hidden="true"></span>
+          <h3>QR-kod</h3>
+          <p>En egen QR-kodsgenerator. Jag byggde den för att förstå hur QR-koder faktiskt fungerar.</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <p class="links">
+            <a href="projekt/qr-kod.html">Läs mer</a>
+            <span class="private">Privat repo</span>
+          </p>
+        </article>
+        <article class="card" data-tech="HTML CSS JavaScript">
+          <span class="cover" aria-hidden="true"></span>
+          <h3>t4-portfolio</h3>
+          <p>Min portfolio för TE4, byggd från grunden i HTML, CSS och JavaScript — du tittar på den just nu.</p>
+          <ul class="tags">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+          <p class="links">
+            <a href="projekt/t4-portfolio.html">Läs mer</a>
+            <a href="https://github.com/timohm/t4-portfolio" target="_blank" rel="noopener">GitHub</a>
+          </p>
+        </article>
+      </section>
+      <section id="loggbok" aria-labelledby="loggbok-h">
+        <h2 id="loggbok-h">Loggbok</h2>
+        <article>
+          <h3>Allmänt</h3>
+          <time datetime="2026-09-07">7 september 2026</time>
+          <p>TODO</p>
+        </article>
+        <article>
+          <h3>JavaScript</h3>
+          <time datetime="2026-09-01">1 september 2026</time>
+          <p>TODO</p>
+        </article>
+        <article>
+          <h3>Reflektion</h3>
+          <time datetime="2026-08-25">25 augusti 2026</time>
+          <p>TODO</p>
+        </article>
+      </section>
+      <section id="kontakt" aria-labelledby="kontakt-h">
+        <h2 id="kontakt-h">Kontakt</h2>
+        <p>Enklast är att mejla mig på <a href="mailto:portfolio@tihm.net">portfolio@tihm.net</a>. Jag finns också på GitHub.</p>
+        <p>
+          <button type="button" class="copy">Kopiera adressen</button>
+          <span role="status"></span>
+        </p>
+      </section>
+    </main>
+    <footer>© <span id="year">2026</span> Timo Mork</footer>
+    <script src="script.js"></script>
+  </body>
 </html>
