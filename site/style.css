@@ -95,3 +95,100 @@ footer {
     transition: none !important;
   }
 }
+
+.skip {
+  position: fixed;
+  top: -3.5rem;
+  left: 0.5rem;
+  z-index: 20;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+.skip:focus {
+  top: 0.5rem;
+}
+
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-bottom: clamp(2.5rem, 8vh, 5rem);
+}
+
+.lead {
+  font-size: 1.125rem;
+  color: var(--muted);
+}
+
+.hero nav {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
+  height: 4rem;
+  padding-inline: calc(max(0vw, (100vw - var(--wrapper)) / 2) + clamp(1.25rem, 5vw, 2.5rem));
+  border-bottom: 1px solid transparent;
+  transition:
+    height 0.3s var(--ease),
+    background-color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+
+.hero nav.scrolled {
+  height: 3rem;
+  background: var(--bg);
+  border-bottom-color: var(--line);
+}
+
+.hero nav button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: var(--text);
+}
+
+@media (min-width: 900px) {
+  #navButton {
+    display: none;
+  }
+
+  .hero nav ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .hero nav a {
+    position: relative;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding-block: 0.5rem;
+    text-decoration: none;
+  }
+
+  .hero nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease);
+  }
+
+  .hero nav a:hover::after {
+    transform: scaleX(1);
+  }
+}
