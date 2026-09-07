@@ -37,7 +37,7 @@ if (count) {
   const filters = [...document.querySelectorAll(".filter")];
   const reset = document.querySelector(".reset");
   const apply = () => {
-    const active = filters.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.textContent);
+    const active = filters.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.dataset.tech);
     cards.forEach((card) =>
       card.toggleAttribute("hidden", !active.every((tech) => card.dataset.tech.split(" ").includes(tech)))
     );
