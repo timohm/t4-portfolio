@@ -244,7 +244,8 @@ header, main > section, footer {
     transition: transform 0.3s var(--ease);
   }
 
-  .hero nav a:hover::after {
+  .hero nav a:hover::after,
+  .hero nav a[aria-current="true"]::after {
     transform: scaleX(1);
   }
 }

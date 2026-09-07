@@ -53,3 +53,16 @@ new IntersectionObserver(([entry]) => {
   bar.classList.toggle("scrolled", !entry.isIntersecting);
   toTop.classList.toggle("show", !entry.isIntersecting);
 }).observe(document.getElementById("top"));
+
+const navLinks = [...document.querySelectorAll("#navList a")];
+if (navLinks.length) {
+  const spy = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      navLinks.forEach((a) =>
+        a.hash === `#${entry.target.id}` ? a.setAttribute("aria-current", "true") : a.removeAttribute("aria-current")
+      );
+    }
+  }, { rootMargin: "-50% 0px -50% 0px" });
+  document.querySelectorAll("main section").forEach((s) => spy.observe(s));
+}
