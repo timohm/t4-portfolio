@@ -78,7 +78,7 @@ a {
   color: inherit;
 }
 
-.strip, .copy, .filter, .tags, .cover, .to-top, #count, dt, time, footer, h2::before {
+.strip, .copy, .filter, .reset, .tags, .cover, .to-top, #count, dt, time, footer, h2::before {
   font: var(--small);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -351,7 +351,7 @@ footer {
   align-items: baseline;
 }
 
-.copy, .filter {
+.copy, .filter, .reset {
   padding: 0.25rem 0;
   border: 0;
   background: none;
@@ -364,7 +364,7 @@ footer {
   border: 1px solid var(--line);
 }
 
-.copy:hover, .filter:hover, .filter[aria-pressed="true"] {
+.copy:hover, .filter:hover, .reset:enabled:hover, .filter[aria-pressed="true"] {
   color: var(--text);
 }
 
@@ -372,6 +372,15 @@ footer {
   text-decoration: underline;
   text-decoration-color: var(--accent);
   text-underline-offset: 0.4em;
+}
+
+.filters li:last-child {
+  margin-left: auto;
+}
+
+.reset:disabled {
+  opacity: 0.4;
+  cursor: default;
 }
 
 #count {

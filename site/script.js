@@ -35,15 +35,25 @@ const count = document.getElementById("count");
 if (count) {
   const cards = [...document.querySelectorAll(".card")];
   const filters = [...document.querySelectorAll(".filter")];
+  const reset = document.querySelector(".reset");
+  const apply = () => {
+    const active = filters.filter((b) => b.getAttribute("aria-pressed") === "true").map((b) => b.textContent);
+    cards.forEach((card) =>
+      card.toggleAttribute("hidden", !active.every((tech) => card.dataset.tech.split(" ").includes(tech)))
+    );
+    reset.disabled = !active.length;
+    count.textContent = `${cards.filter((card) => !card.hidden).length} av ${cards.length} projekt`;
+  };
   for (const button of filters) {
     button.addEventListener("click", () => {
-      filters.forEach((b) => b.setAttribute("aria-pressed", b === button));
-      cards.forEach((card) =>
-        card.toggleAttribute("hidden", button.textContent !== "Alla" && !card.dataset.tech.includes(button.textContent))
-      );
-      count.textContent = `${cards.filter((card) => !card.hidden).length} av ${cards.length} projekt`;
+      button.setAttribute("aria-pressed", button.getAttribute("aria-pressed") !== "true");
+      apply();
     });
   }
+  reset.addEventListener("click", () => {
+    filters.forEach((b) => b.setAttribute("aria-pressed", "false"));
+    apply();
+  });
 }
 
 const toTop = document.querySelector(".to-top");
