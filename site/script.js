@@ -1,9 +1,18 @@
 const themeButton = document.getElementById("themeButton");
+const themeColor = document.querySelectorAll('meta[name="theme-color"]');
+
+function paintChrome() {
+  const bg = getComputedStyle(document.documentElement).getPropertyValue("--bg").trim();
+  themeColor.forEach((meta) => (meta.content = bg));
+}
 
 function setTheme(dark) {
   document.documentElement.classList.toggle("dark", dark);
   localStorage.theme = dark ? "dark" : "light";
+  paintChrome();
 }
+
+paintChrome();
 
 themeButton.addEventListener("click", () =>
   setTheme(!document.documentElement.classList.contains("dark"))
