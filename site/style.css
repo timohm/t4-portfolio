@@ -1,3 +1,11 @@
+/* Instrument Serif is SIL OFL 1.1; the licence is in fonts/OFL.txt */
+@font-face {
+  font-family: "Instrument Serif";
+  font-weight: 400;
+  font-display: optional;
+  src: url("fonts/instrument-serif.woff2") format("woff2");
+}
+
 :root {
   --bg: #f4efe6;
   --surface: #ece4d6;
@@ -11,7 +19,7 @@
   --css: #663399;
   --js: #e0b400;
   --ts: #3178c6;
-  --display: ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
+  --display: "Instrument Serif", ui-serif, Georgia, "Iowan Old Style", "Times New Roman", serif;
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --small: 0.75rem var(--mono);
