@@ -11,6 +11,8 @@
   --css: #663399;
   --js: #e0b400;
   --ts: #3178c6;
+  --link-l: 0.5;
+  --link-c: 0.15;
   --display: var(--mono);
   --body: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -36,6 +38,8 @@ html.dark {
   --css: #9b6fd0;
   --js: #f1e05a;
   --ts: #5a9bea;
+  --link-l: 0.8;
+  --link-c: 0.13;
   color-scheme: dark;
 }
 
@@ -119,6 +123,45 @@ main a {
 
 main a:hover {
   text-decoration-color: var(--accent);
+}
+
+.linked {
+  --link: oklch(var(--link-l) var(--link-c) var(--hue));
+  color: var(--link);
+}
+
+.linked, .linked:hover {
+  text-decoration-color: var(--link);
+}
+
+.letter {
+  position: relative;
+}
+
+.mark {
+  --link-l: 0.82;
+  position: absolute;
+  display: grid;
+  place-items: center;
+  writing-mode: vertical-rl;
+  font-family: var(--mono);
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.2s var(--ease);
+}
+
+html.dark .mark {
+  --link-l: 0.45;
+}
+
+.mark:hover {
+  color: var(--bg);
+}
+
+.mark[hidden] {
+  display: none;
 }
 
 ::selection {
@@ -595,11 +638,21 @@ html.js .to-top:not(.show) {
   :root {
     --muted: #4d3624;
     --line: #9c8262;
+    --link-l: 0.4;
   }
 
   html.dark {
     --muted: #dcc5aa;
     --line: #7a6a56;
+    --link-l: 0.88;
+  }
+
+  .mark {
+    --link-l: 0.92;
+  }
+
+  html.dark .mark {
+    --link-l: 0.3;
   }
 
   body::before {
@@ -618,7 +671,7 @@ html.js .to-top:not(.show) {
 }
 
 @media print {
-  header nav, .to-top, .copy, .filters, body::before, body::after {
+  header nav, .to-top, .copy, .filters, .mark, body::before, body::after {
     display: none;
   }
 
