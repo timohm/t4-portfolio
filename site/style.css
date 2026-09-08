@@ -129,6 +129,13 @@ main > section {
   scroll-margin-top: 4rem;
 }
 
+#om::after {
+  content: "";
+  grid-row: 2;
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--line);
+}
+
 footer {
   padding-block: 2rem;
   border-top: 1px solid var(--line);
