@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f4efe6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#151210" media="(prefers-color-scheme: dark)">
+    <title>t4-portfolio – Timo Mork</title>
+    <meta name="description" content="Det här projektet är sidan du läser. Min portfolio för TE4, byggd från grunden i HTML, CSS och JavaScript.">
+    <link rel="canonical" href="https://timohm.github.io/t4-portfolio/projekt/t4-portfolio.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <script>document.documentElement.classList.add("js");if (localStorage.theme === "dark" || (!localStorage.theme && matchMedia("(prefers-color-scheme: dark)").matches)) document.documentElement.classList.add("dark")</script>
+  </head>
+  <body>
+    <span id="top"></span>
+    <a class="skip" href="#main">Hoppa till innehållet</a>
+    <header>
+      <nav aria-label="Huvudmeny">
+        <ul id="navList">
+          <li><a href="../index.html#om">Om mig</a></li>
+          <li><a href="../index.html#projekt">Projekt</a></li>
+          <li><a href="../index.html#loggbok">Loggbok</a></li>
+          <li><a href="../index.html#kontakt">Kontakt</a></li>
+        </ul>
+        <button id="navButton" type="button" aria-expanded="false" aria-controls="navList" aria-label="Meny"></button>
+        <button id="themeButton" type="button" aria-label="Byt tema"></button>
+      </nav>
+    </header>
+    <main id="main">
+      <section>
+        <span class="cover" aria-hidden="true">03</span>
+        <h1>t4-portfolio</h1>
+        <p>Det här projektet är sidan du läser. Min portfolio för TE4, byggd från grunden i HTML, CSS och JavaScript.</p>
+        <ul class="tags">
+          <li data-tech="HTML">HTML</li>
+          <li data-tech="CSS">CSS</li>
+          <li data-tech="JavaScript">JavaScript</li>
+        </ul>
+        <dl>
+          <dt>Vad som fungerade</dt>
+          <dd>TODO</dd>
+          <dt>Vad som var svårt</dt>
+          <dd>TODO</dd>
+          <dt>Vad jag lärde mig</dt>
+          <dd>TODO</dd>
+        </dl>
+        <p class="links">
+          <a href="https://github.com/timohm/t4-portfolio" target="_blank" rel="noopener">GitHub</a>
+          <a href="../index.html#projekt">TODO</a>
+        </p>
+      </section>
+    </main>
+    <footer>© <span id="year">2026</span> Timo Mork</footer>
+    <a class="to-top" href="#top">TODO</a>
+    <script src="../script.js"></script>
+  </body>
+</html>
