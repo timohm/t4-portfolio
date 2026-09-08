@@ -141,12 +141,12 @@ main a:hover {
 .mark {
   --link-l: 0.82;
   position: absolute;
-  display: grid;
-  place-items: center;
+  top: var(--y);
+  left: var(--x);
+  translate: -50% -50%;
   writing-mode: vertical-rl;
-  font-family: var(--mono);
-  font-weight: 600;
-  line-height: 1;
+  font: 600 max(0.5rem, 0.035em)/1 var(--mono);
+  letter-spacing: 0;
   white-space: nowrap;
   text-decoration: none;
   transition: color 0.2s var(--ease);
@@ -158,10 +158,6 @@ html.dark .mark {
 
 .mark:hover {
   color: var(--bg);
-}
-
-.mark[hidden] {
-  display: none;
 }
 
 ::selection {
