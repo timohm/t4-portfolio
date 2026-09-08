@@ -1,5 +1,4 @@
 // Goes through every project card, colours its links by project, and lays each link's
-// address along the stem of one of the letters of the name in the masthead.
 // Without JavaScript the name stays plain text and the card links keep the muted underline.
 
 const name = document.querySelector(".masthead h1");
@@ -45,11 +44,7 @@ if (name && links.length) {
       letter.className = "letter";
       letter.textContent = char;
       fragment.append(letter);
-      if (stems[char]) letters.push(letter);
-    }
-  }
-
-  // Longest address on the longest stem, so every mark stays inside its letter.
+      
   const marks = links.map((link) => {
     const mark = link.cloneNode(false);
     mark.classList.add("mark");
@@ -57,6 +52,7 @@ if (name && links.length) {
     mark.textContent = link.getAttribute("href").replace(/^https?:\/\//, "").replace(/\/$/, "");
     mark.title = link.textContent;
     mark.setAttribute("aria-label", link.textContent);
+
     return mark;
   });
   const byLength = [...marks].sort((a, b) => b.textContent.length - a.textContent.length);
