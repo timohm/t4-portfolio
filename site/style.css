@@ -528,14 +528,17 @@ dd {
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
   align-items: baseline;
-  font-family: var(--display);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  line-height: 1.05;
+  font: 1.125rem var(--mono);
 }
 
 #kontakt dd a {
-  text-decoration-thickness: 1px;
-  text-underline-offset: 0.15em;
+  text-decoration: underline 1px var(--muted);
+  text-underline-offset: 0.3em;
+  transition: text-decoration-color 0.2s var(--ease);
+}
+
+#kontakt dd a:hover {
+  text-decoration-color: var(--accent);
 }
 
 .to-top {
